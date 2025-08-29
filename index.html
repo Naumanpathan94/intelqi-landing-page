@@ -118,20 +118,29 @@
       <!-- home - hero img holder -->
       <section class="hero-img-holder">
         <div class="hero-img">
+          <img src="/images/hero/img1.jpg" alt="Hero background" class="hero-poster" />
           <video
             class="hero-video"
-            autoplay
             loop
-            muted
             playsinline
             preload="auto"
-            poster="/images/hero/img1.jpg">
-            <source src="/videos/6590467-uhd_4096_2160_25fps.mp4" type="video/mp4">
-            <!-- Fallback message if video cannot be loaded -->
-            <div class="video-fallback">
-              <img src="/images/hero/img1.jpg" alt="Hero background" class="fallback-image">
-            </div>
+            style="display:none;">
+            <source src="/videos/istockphoto-1475010821-640_adpp_is.mp4" type="video/mp4">
           </video>
+          <div class="video-controls" style="display:none;">
+            <button class="sound-toggle" aria-label="Toggle sound">
+              <svg class="sound-on" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
+                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
+              </svg>
+              <svg class="sound-off" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
+                <line x1="23" y1="9" x2="17" y2="15"></line>
+                <line x1="17" y1="9" x2="23" y2="15"></line>
+              </svg>
+            </button>
+          </div>
         </div>
       </section>
 

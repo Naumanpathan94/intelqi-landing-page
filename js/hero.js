@@ -60,6 +60,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   let scrollTriggerInstance = null;
+  let lastScrollProgress = 0;
+  let currentRotation = -15;
 
   const initAnimations = () => {
     if (scrollTriggerInstance) scrollTriggerInstance.kill();
@@ -70,16 +72,25 @@ document.addEventListener("DOMContentLoaded", () => {
       end: "top top",
       onUpdate: (self) => {
         const p = self.progress;
+        const rotation = -15 + 15 * p;
+        currentRotation = rotation;
+        
         gsap.set(".hero-img", {
           y: `${-110 + 110 * p}%`,
           scale: 0.25 + 0.75 * p,
-          rotation: -15 + 15 * p,
+          rotation: rotation,
         });
 
-        // Control video playback based on scroll position
+        // Control video playback based on rotation state (horizontal = 0°)
         if (heroVideo && heroPoster && videoControls) {
-          if (p >= 0.95 && !isVideoPlaying) {
-            // Start playing video when scrolled down enough
+          const isScrollingDown = p > lastScrollProgress;
+          lastScrollProgress = p;
+          
+          // Check if card is horizontal (within ±1° tolerance)
+          const isHorizontal = Math.abs(rotation) <= 1;
+          
+          if (isHorizontal && !isVideoPlaying) {
+            // Card is horizontal - play video
             isVideoPlaying = true;
             heroPoster.style.display = 'none';
             heroVideo.style.display = 'block';
@@ -104,8 +115,8 @@ document.addEventListener("DOMContentLoaded", () => {
             }, 100);
             
             heroVideo.classList.add('playing');
-          } else if (p <= 0.1 && isVideoPlaying) {
-            // Pause video when back at top
+          } else if (!isHorizontal && isVideoPlaying) {
+            // Card is no longer horizontal - pause video and show static image
             isVideoPlaying = false;
             videoPausedTime = heroVideo.currentTime;
             

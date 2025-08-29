@@ -4,7 +4,7 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    { "source": "/((?!.*\\.json$).*)", "destination": "/$1.html" },
-    { "source": "/((?!.*\\.json$).*)/", "destination": "/$1.html" }
+    { "source": "/((?!.*\\.(json|jpg|jpeg|png|gif|svg)$).*)", "destination": "/$1.html" },
+    { "source": "/((?!.*\\.(json|jpg|jpeg|png|gif|svg)$).*)/", "destination": "/$1.html" }
   ]
 }

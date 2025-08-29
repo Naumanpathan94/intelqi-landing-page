@@ -15,6 +15,11 @@ document.addEventListener("DOMContentLoaded", () => {
   const soundOnIcon = document.querySelector(".sound-on");
   const soundOffIcon = document.querySelector(".sound-off");
   
+  // Ensure poster image is visible initially
+  if (heroPoster) {
+    heroPoster.style.display = 'block';
+  }
+  
   // Store video state
   let videoPausedTime = 0;
   let isVideoPlaying = false;
@@ -80,22 +85,40 @@ document.addEventListener("DOMContentLoaded", () => {
             heroVideo.style.display = 'block';
             videoControls.style.display = 'block';
             heroVideo.currentTime = videoPausedTime;
-            heroVideo.play().catch(err => {
-              console.warn('Video play failed:', err);
-              // Fallback for autoplay restrictions
-              heroVideo.muted = true;
-              heroVideo.play();
-            });
+            
+            // Use a small timeout to prevent play() being interrupted by rapid scroll events
+            setTimeout(() => {
+              if (isVideoPlaying) {
+                heroVideo.play().catch(err => {
+                  console.warn('Video play failed:', err);
+                  // Fallback for autoplay restrictions
+                  heroVideo.muted = true;
+                  heroVideo.play().catch(() => {
+                    // If still failing, keep poster visible
+                    heroPoster.style.display = 'block';
+                    heroVideo.style.display = 'none';
+                    isVideoPlaying = false;
+                  });
+                });
+              }
+            }, 100);
+            
             heroVideo.classList.add('playing');
           } else if (p <= 0.1 && isVideoPlaying) {
             // Pause video when back at top
             isVideoPlaying = false;
             videoPausedTime = heroVideo.currentTime;
-            heroVideo.pause();
-            heroVideo.classList.remove('playing');
-            heroVideo.style.display = 'none';
-            videoControls.style.display = 'none';
-            heroPoster.style.display = 'block';
+            
+            // Use a small timeout to prevent race conditions
+            setTimeout(() => {
+              if (!isVideoPlaying) {
+                heroVideo.pause();
+                heroVideo.classList.remove('playing');
+                heroVideo.style.display = 'none';
+                videoControls.style.display = 'none';
+                heroPoster.style.display = 'block';
+              }
+            }, 50);
           }
         }
       },

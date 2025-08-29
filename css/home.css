@@ -159,6 +159,13 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    display: block !important; /* Force display on mobile */
+  }
+  
+  /* Ensure hero image container has proper dimensions */
+  .hero-img {
+    width: 100%;
+    height: 100%;
   }
   
   .video-controls {
@@ -175,6 +182,34 @@
     width: 20px;
     height: 20px;
   }
+}
+
+/* Additional mobile-specific fixes */
+@media (max-width: 768px) {
+  .hero-img-holder {
+    padding: 1em; /* Reduce padding on smaller screens */
+  }
+  
+  .hero-poster {
+    border-width: 0.2em; /* Thinner border on mobile */
+  }
+}
+
+/* Ensure images are loaded properly */
+.hero-poster {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fallback for image loading issues */
+.hero-img {
+  position: relative;
+  background-color: #f0f0f0; /* Fallback background color */
+}
+
+.hero-poster[src=""] {
+  display: none;
 }
 
 /* home - featured work */

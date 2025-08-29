@@ -92,7 +92,11 @@ document.addEventListener("DOMContentLoaded", () => {
           if (isHorizontal && !isVideoPlaying) {
             // Card is horizontal - play video
             isVideoPlaying = true;
-            heroPoster.style.display = 'none';
+            heroPoster.classList.add('fading-out');
+            setTimeout(() => {
+              heroPoster.style.display = 'none';
+              heroPoster.classList.remove('fading-out');
+            }, 800);
             heroVideo.style.display = 'block';
             videoControls.style.display = 'block';
             heroVideo.currentTime = videoPausedTime;
@@ -116,20 +120,25 @@ document.addEventListener("DOMContentLoaded", () => {
             
             heroVideo.classList.add('playing');
           } else if (!isHorizontal && isVideoPlaying) {
-            // Card is no longer horizontal - pause video and show static image
+            // Card is no longer horizontal - pause video and show static image with smooth fade-in
             isVideoPlaying = false;
             videoPausedTime = heroVideo.currentTime;
+            heroVideo.classList.remove('playing');
+            heroVideo.style.display = 'none';
+            videoControls.style.display = 'none';
+            heroPoster.style.display = 'block';
             
-            // Use a small timeout to prevent race conditions
-            setTimeout(() => {
-              if (!isVideoPlaying) {
-                heroVideo.pause();
-                heroVideo.classList.remove('playing');
-                heroVideo.style.display = 'none';
-                videoControls.style.display = 'none';
-                heroPoster.style.display = 'block';
-              }
-            }, 50);
+            // Use requestAnimationFrame for smoother animation timing
+            requestAnimationFrame(() => {
+              heroPoster.classList.add('fading-in');
+              // Add visible class after a frame to trigger transition
+              requestAnimationFrame(() => {
+                heroPoster.classList.add('visible');
+                setTimeout(() => {
+                  heroPoster.classList.remove('fading-in', 'visible');
+                }, 600);
+              });
+            });
           }
         }
       },
@@ -152,10 +161,14 @@ document.addEventListener("DOMContentLoaded", () => {
           isVideoPlaying = false;
         }
       },
-      onEnterBack: () => {
+        onEnterBack: () => {
         // User scrolled back to hero section - resume video
         if (heroVideo && !isVideoPlaying) {
-          heroPoster.style.display = 'none';
+          heroPoster.classList.add('fading-out');
+          setTimeout(() => {
+            heroPoster.style.display = 'none';
+            heroPoster.classList.remove('fading-out');
+          }, 800);
           heroVideo.style.display = 'block';
           videoControls.style.display = 'block';
           heroVideo.currentTime = videoPausedTime;

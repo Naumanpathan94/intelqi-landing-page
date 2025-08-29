@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
         // Control video playback based on scroll position
         if (heroVideo && heroPoster && videoControls) {
-          if (p > 0.1 && !isVideoPlaying) {
+          if (p >= 0.95 && !isVideoPlaying) {
             // Start playing video when scrolled down enough
             isVideoPlaying = true;
             heroPoster.style.display = 'none';

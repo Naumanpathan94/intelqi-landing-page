@@ -20,6 +20,7 @@
   position: relative;
   transform: translateX(-20%);
   z-index: -1;
+  margin-bottom: 1.5em;
 }
 
 .hero .hero-header.hero-header-2 {
@@ -203,10 +204,17 @@
 @media (max-width: 1000px) {
   .hero {
     height: auto; /* Allow height to adjust to content */
+    padding-bottom: 4em; /* Match spacing between footer lines and hero image card to spacing between IntelQI Studios and Build Smart */
+    margin-top: 4em; /* Increased top margin to increase space between IntelQI Studios and Build Smart */
+  }
+
+  .hero .hero-header-wrapper {
+    margin-bottom: 4em; /* Match spacing between Build Smart and footer lines to spacing between IntelQI Studios and Build Smart */
   }
 
   .hero-img-holder {
     height: auto; /* Allow height to be determined by aspect ratio */
+    margin-top: 8em; /* Increased top margin to increase space between IntelQI Studios and Build Smart */
   }
 
   .hero-poster {
@@ -241,15 +249,15 @@
 /* Additional mobile-specific fixes */
 @media (max-width: 768px) {
   .hero {
-    padding: 4em; /* Further increase padding for mobile */
+    padding: 2em 2em 4em 2em; /* Match spacing between footer lines and hero image card to spacing between IntelQI Studios and Build Smart */
   }
 
   .hero .hero-header-wrapper {
-    margin-bottom: 8em; /* Further increase spacing below headers */
+    margin-bottom: 4em; /* Reduced spacing below headers to bring closer to footer */
   }
 
   .hero .hero-footer {
-    margin-top: 8em; /* Further increase spacing above footer */
+    margin-top: 4em; /* Reduced spacing above footer to bring closer to header */
   }
 
   .hero-img-holder {
@@ -481,12 +489,14 @@
 
   .hero .hero-footer {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
   }
 
   .hero .hero-footer .hero-footer-scroll-down {
-    left: 2em;
-    transform: translateX(0%);
+    position: static;
+    transform: none;
   }
 
   .featured-work {
@@ -508,7 +518,7 @@
 
   .featured-work .featured-title-wrapper h1 {
     transform: translateY(0);
-    width: 75%;
+    width: 100%;
   }
 
   .featured-work .featured-work-footer {

@@ -518,7 +518,7 @@
 
   .featured-work .featured-title-wrapper h1 {
     transform: translateY(0);
-    width: 75%;
+    width: 100%;
   }
 
   .featured-work .featured-work-footer {

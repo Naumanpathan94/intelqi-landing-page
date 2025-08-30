@@ -20,6 +20,7 @@
   position: relative;
   transform: translateX(-20%);
   z-index: -1;
+  margin-bottom: 1.5em;
 }
 
 .hero .hero-header.hero-header-2 {
@@ -203,10 +204,12 @@
 @media (max-width: 1000px) {
   .hero {
     height: auto; /* Allow height to adjust to content */
+    padding-bottom: 6em; /* Add extra bottom padding to allow footer lines to be fully visible before card rotates */
   }
 
   .hero-img-holder {
     height: auto; /* Allow height to be determined by aspect ratio */
+    margin-top: 6em; /* Add top margin to push the card down so it starts rotating after footer lines are visible */
   }
 
   .hero-poster {
@@ -481,12 +484,14 @@
 
   .hero .hero-footer {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1em;
   }
 
   .hero .hero-footer .hero-footer-scroll-down {
-    left: 2em;
-    transform: translateX(0%);
+    position: static;
+    transform: none;
   }
 
   .featured-work {

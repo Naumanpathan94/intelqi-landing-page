@@ -25,6 +25,17 @@ document.addEventListener("DOMContentLoaded", () => {
   let isVideoPlaying = false;
   let isSoundOn = false;
 
+  // Function to update sound icons
+  const updateSoundIcons = () => {
+    if (isSoundOn) {
+      soundOnIcon.style.display = 'block';
+      soundOffIcon.style.display = 'none';
+    } else {
+      soundOnIcon.style.display = 'none';
+      soundOffIcon.style.display = 'block';
+    }
+  };
+
   // Video loading error handling
   if (heroVideo) {
     heroVideo.addEventListener('error', (e) => {
@@ -48,14 +59,7 @@ document.addEventListener("DOMContentLoaded", () => {
     soundToggle.addEventListener('click', () => {
       isSoundOn = !isSoundOn;
       heroVideo.muted = !isSoundOn;
-      
-      if (isSoundOn) {
-        soundOnIcon.style.display = 'block';
-        soundOffIcon.style.display = 'none';
-      } else {
-        soundOnIcon.style.display = 'none';
-        soundOffIcon.style.display = 'block';
-      }
+      updateSoundIcons();
     });
   }
 
@@ -108,6 +112,8 @@ document.addEventListener("DOMContentLoaded", () => {
                   console.warn('Video play failed:', err);
                   // Fallback for autoplay restrictions
                   heroVideo.muted = true;
+                  isSoundOn = false;
+                  updateSoundIcons();
                   heroVideo.play().catch(() => {
                     // If still failing, keep poster visible
                     heroPoster.style.display = 'block';
@@ -117,8 +123,12 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
               }
             }, 100);
-            
+
             heroVideo.classList.add('playing');
+            // Turn sound on when video starts playing
+            isSoundOn = true;
+            heroVideo.muted = false;
+            updateSoundIcons();
           } else if (!isHorizontal && isVideoPlaying) {
             // Card is no longer horizontal - pause video and show static image with smooth fade-in
             isVideoPlaying = false;
@@ -127,7 +137,12 @@ document.addEventListener("DOMContentLoaded", () => {
             heroVideo.style.display = 'none';
             videoControls.style.display = 'none';
             heroPoster.style.display = 'block';
-            
+
+            // Turn sound off when video stops
+            isSoundOn = false;
+            heroVideo.muted = true;
+            updateSoundIcons();
+
             // Use requestAnimationFrame for smoother animation timing
             requestAnimationFrame(() => {
               heroPoster.classList.add('fading-in');
@@ -159,6 +174,10 @@ document.addEventListener("DOMContentLoaded", () => {
           videoControls.style.display = 'none';
           heroPoster.style.display = 'block';
           isVideoPlaying = false;
+          // Turn sound off when video stops
+          isSoundOn = false;
+          heroVideo.muted = true;
+          updateSoundIcons();
         }
       },
         onEnterBack: () => {
@@ -175,10 +194,16 @@ document.addEventListener("DOMContentLoaded", () => {
           heroVideo.play().catch(err => {
             console.warn('Video resume failed:', err);
             heroVideo.muted = true;
+            isSoundOn = false;
+            updateSoundIcons();
             heroVideo.play();
           });
           heroVideo.classList.add('playing');
           isVideoPlaying = true;
+          // Turn sound on when video starts playing
+          isSoundOn = true;
+          heroVideo.muted = false;
+          updateSoundIcons();
         }
       }
     });

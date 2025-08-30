@@ -239,9 +239,20 @@
   .hero-img-holder {
     padding: 1em; /* Reduce padding on smaller screens */
   }
-  
+
+  .hero-img {
+    border: 0.2em solid var(--fg); /* Match featured work border */
+    border-radius: 1em; /* Match featured work border-radius */
+  }
+
   .hero-poster {
-    border-width: 0.2em; /* Thinner border on mobile */
+    border: 0.2em solid var(--fg); /* Match featured work border */
+    border-radius: 1em; /* Match featured work border-radius */
+  }
+
+  .hero-video {
+    border: 0.2em solid var(--fg); /* Match featured work border */
+    border-radius: 1em; /* Match featured work border-radius */
   }
 }
 

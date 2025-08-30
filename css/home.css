@@ -240,6 +240,18 @@
 
 /* Additional mobile-specific fixes */
 @media (max-width: 768px) {
+  .hero {
+    padding: 1em; /* Reduce padding for mobile */
+  }
+
+  .hero .hero-header-wrapper {
+    margin-bottom: 2em; /* Add spacing below headers */
+  }
+
+  .hero .hero-footer {
+    margin-top: 2em; /* Add spacing above footer */
+  }
+
   .hero-img-holder {
     padding: 1em; /* Reduce padding on smaller screens */
     height: auto; /* Allow height to be determined by aspect ratio */

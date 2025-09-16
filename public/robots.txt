@@ -1,0 +1,23 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://intelqi.com/sitemap.xml
+
+# Crawl-delay for polite crawling
+Crawl-delay: 1
+
+# Disallow crawling of admin/private areas (if any in future)
+Disallow: /admin/
+Disallow: /private/
+Disallow: /*.pdf$
+
+# Allow all images and assets
+Allow: /images/
+Allow: /css/
+Allow: /js/
+Allow: /fonts/
+
+# Block specific bots if needed (uncomment if necessary)
+# User-agent: BadBot
+# Disallow: /

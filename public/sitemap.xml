@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://intelqi.com/</loc>
+    <lastmod>2025-09-16</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://ik.imagekit.io/4uy15b77a/IntelQI%20Studios%20(2).png?updatedAt=1758038298474</image:loc>
+      <image:title>IntelQI Studios - Custom Software Solutions</image:title>
+      <image:caption>IntelQI Studios specializes in custom software development, web applications, and digital solutions</image:caption>
+    </image:image>
+  </url>
+</urlset>

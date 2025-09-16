@@ -7,7 +7,7 @@
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
     <image:image>
-      <image:loc>/meta.png</image:loc>
+      <image:loc>/images/global/meta.png</image:loc>
       <image:title>IntelQI Studios - Custom Software Solutions</image:title>
       <image:caption>IntelQI Studios specializes in custom software development, web applications, and digital solutions</image:caption>
     </image:image>

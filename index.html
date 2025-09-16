@@ -207,15 +207,15 @@
               </p>
             </header>
             <div class="contact-info">
-              <h2 class="mn contact-card-header">Project Proposals</h2>
-              <p class="mn"><a href="mailto:hq@intelqi.com" target="_blank" rel="noopener">hq@intelqi.com</a></p>
+              <p class="mn contact-card-header">Send your Project Brief</p> 
+              <p class="mn" style="margin-top: 0.5rem;"><a href="mailto:hq@intelqi.com" target="_blank" rel="noopener">hq@intelqi.com</a></p>
             </div>
           </article>
-          <div class="contact-card contact-card-2">
-            <a href="https://www.campuscredentials.com" target="_blank" rel="noopener" style="text-decoration: none; color: inherit;">
-              <p class="mn contact-card-header">Proposal Template &#8599;</p>
-            </a>
-          </div>
+            <div class="contact-card contact-card-2">
+              <button onclick="downloadTemplate()" style="background: none; border: none; padding: 0; cursor: pointer; text-decoration: none; color: inherit; width: 100%;">
+                <p class="mn contact-card-header">Brief Template &#8599;</p>
+              </button>
+            </div>
           <div class="contact-symbol">
             <img src="/images/global/symbols.png" alt="IntelQI Studios decorative symbols and design elements" />
           </div>
@@ -226,5 +226,16 @@
     <script type="module" src="/js/lenis-scroll.js"></script>
     <script type="module" src="/js/menu.js"></script>
     <script type="module" src="/js/contact.js"></script>
+    
+    <script>
+      function downloadTemplate() {
+        const link = document.createElement('a');
+        link.href = '/IntelQI_Project_Brief_Template.docx';
+        link.download = 'IntelQI_Project_Brief_Template.docx';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      }
+    </script>
   </body>
 </html>

@@ -3,19 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>IntelQI Technologies</title>
+    <title>IntelQI Studios - Let's Talk Solutions</title>
     <link rel="icon" href="/images/global/site-icon.png" />
 
     <link rel="stylesheet" href="/css/transition.css" />
     <link rel="stylesheet" href="/css/fonts.css" />
     <link rel="stylesheet" href="/css/globals.css" />
     <link rel="stylesheet" href="/css/menu.css" />
-    <link rel="stylesheet" href="/css/home.css" />
-    <link rel="stylesheet" href="/css/work.css" />
-    <link rel="stylesheet" href="/css/project.css" />
-    <link rel="stylesheet" href="/css/about.css" />
     <link rel="stylesheet" href="/css/contact.css" />
-    <link rel="stylesheet" href="/css/footer.css" />
   </head>
   <body>
     <!-- page transition  -->
@@ -27,7 +22,7 @@
       <div class="transition-overlay overlay-5"></div>
     </div>
 
-    <div class="page home-page">
+    <div class="page contact-page">
       <!-- nav -->
       <nav>
         <div class="logo">
@@ -37,25 +32,24 @@
         </div>
         <div class="menu-toggle-btn">
           <div class="menu-toggle-btn-wrapper">
-            <p class="mn open-label">Menu</p>
+            <p class="mn open-label">Who Are We?</p>
             <p class="mn close-label">Close</p>
           </div>
         </div>
       </nav>
-
       <div class="nav-overlay">
-        <div class="nav-items">
-          <div class="nav-item active">
-            <p><a href="/">127.0.0.1</a></p>
-          </div>
-          <div class="nav-item">
-            <p><a href="/work">Clientele</a></p>
-          </div>
-          <div class="nav-item">
-            <p><a href="/about">About Us</a></p>
-          </div>
-          <div class="nav-item">
-            <p><a href="/contact">Connect</a></p>
+        <div class="video-container">
+          <video id="aboutVideo" preload="auto">
+            <source src="https://ik.imagekit.io/4uy15b77a/intelqi.mp4?updatedAt=1758017794728" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+          <div class="video-controls">
+            <button id="playPauseBtn" class="video-control-btn">
+              <div class="video-control-btn-wrapper">
+                <p class="mn play-label">Play</p>
+                <p class="mn pause-label">Pause</p>
+              </div>
+            </button>
           </div>
         </div>
         <div class="nav-footer">
@@ -64,14 +58,17 @@
               <p class="mn">Find Us</p>
             </div>
             <div class="nav-footer-item-copy">
-              <p class="mn"><a href="#" target="_blank">Youtube</a></p>
+              <p class="mn"><a href="https://www.youtube.com/@intelqi" target="_blank">Youtube</a></p>
               <p class="mn"><a href="#" target="_blank">Instagram</a></p>
               <p class="mn"><a href="#" target="_blank">LinkedIn</a></p>
             </div>
           </div>
           <div class="nav-footer-item">
             <div class="nav-footer-item-copy">
-              <p class="mn">Developed by IntelQI Studios / 2025</p>
+              <p class="mn">Developed by IntelQI Studios / <span id="current-year"></span></p>
+              <script>
+                document.getElementById('current-year').textContent = new Date().getFullYear();
+              </script>
             </div>
           </div>
           <div class="nav-footer-item">
@@ -80,8 +77,8 @@
             </div>
             <div class="nav-footer-item-copy">
               <p class="mn">
-                <a href="mailto:hello@otisvalen.com" target="_blank"
-                  >hello@intelqi.com</a
+                <a href="mailto:hq@intelqi.com" target="_blank"
+                  >hq@intelqi.com</a
                 >
               </p>
             </div>
@@ -89,244 +86,31 @@
         </div>
       </div>
 
-      <!-- home - hero -->
-      <section class="hero">
-        <div class="hero-header-wrapper">
-          <div class="hero-header hero-header-1">
-            <h1>Build</h1>
+      <!-- contact - hero -->
+      <section class="contact trail-container">
+        <div class="contact-card contact-card-1">
+          <div class="contact-card-header-main">
+            <h1>Let’s Talk Solutions</h1>
+            <p>
+              No matter the industry, every great system starts with a conversation. Share your ideas, goals, or even just a starting point. Our team is ready to turn them into powerful applications that drive results.
+            </p>
           </div>
-          <div class="hero-header hero-header-2">
-            <h1>Smart</h1>
-          </div>
+          <p class="mn contact-card-header">Project Proposals</p>
+          <p class="mn"><a href="mailto:hq@intelqi.com" target="_blank">hq@intelqi.com</a></p>
         </div>
-        <div class="hero-footer">
-          <div class="hero-footer-symbols">
-            <img src="/images/global/symbols.png" alt="" />
-          </div>
-          <div class="hero-footer-scroll-down">
-            <p class="mn">Developed by IntelQI Studios / 2025</p>
-          </div>
-          <div class="hero-footer-tags">
-            <p class="mn">Client Mode: ON</p>
-          </div>
+        <div class="contact-card contact-card-2">
+          <a href="https://www.campuscredentials.com" target="_blank" style="text-decoration: none; color: inherit;">
+            <p class="mn contact-card-header">Proposal Template &#8599;</p>
+          </a>
         </div>
-      </section>
-
-      <!-- home - hero img holder -->
-      <section class="hero-img-holder">
-        <div class="hero-img">
-          <img src="/images/hero/img1.jpg" alt="Hero background" class="hero-poster" />
-          <video
-            class="hero-video"
-            loop
-            playsinline
-            preload="auto"
-            style="display:none;">
-            <source src="/videos/istockphoto-1475010821-640_adpp_is.mp4" type="video/mp4">
-          </video>
-          <div class="video-controls" style="display:none;">
-            <button class="sound-toggle" aria-label="Toggle sound">
-              <svg class="sound-on" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-                <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-              </svg>
-              <svg class="sound-off" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
-                <path d="M11 5L6 9H2v6h4l5 4V5z"></path>
-                <line x1="23" y1="9" x2="17" y2="15"></line>
-                <line x1="17" y1="9" x2="23" y2="15"></line>
-              </svg>
-            </button>
-          </div>
+        <div class="contact-symbol">
+          <img src="/images/global/symbols.png" alt="" />
         </div>
       </section>
-
-      <!-- home - featured work -->
-      <section class="featured-work">
-        <div class="featured-images"></div>
-        <div class="featured-titles">
-          <div class="featured-title-wrapper">
-            <h1 class="featured-title">Walchand PRo</h1>
-          </div>
-          <div class="featured-title-wrapper">
-            <div class="featured-title-img">
-              <img src="/images/work-items/work-item-1.jpg" alt="" />
-            </div>
-            <h1 class="featured-title">Campus Credentials</h1>
-          </div>
-          <div class="featured-title-wrapper">
-            <div class="featured-title-img">
-              <img src="/images/work-items/work-item-2.jpg" alt="" />
-            </div>
-            <h1 class="featured-title">devassessment.io</h1>
-          </div>
-          <div class="featured-title-wrapper">
-            <div class="featured-title-img">
-              <img src="/images/work-items/work-item-3.jpg" alt="" />
-            </div>
-            <h1 class="featured-title">Prepcrazy</h1>
-          </div>
-          <div class="featured-title-wrapper">
-            <div class="featured-title-img">
-              <img src="/images/work-items/work-item-4.jpg" alt="" />
-            </div>
-            <h1 class="featured-title">Project Neo</h1>
-          </div>
-        </div>
-        <div class="featured-work-indicator"></div>
-        <div class="featured-work-footer">
-          <p class="mn">Visual Display [ 10 ]</p>
-          <p class="mn">///////////////////</p>
-          <p class="mn"><a href="/work">Browse Full Portfolio</a></p>
-        </div>
-      </section>
-
-      <!-- home - services header -->
-      <section class="services-header">
-        <div class="services-header-content">
-          <div class="services-profile-icon">
-            <img
-              src="/images/global/site-icon.png"
-              alt="IntelQI Studios Logo"
-            />
-          </div>
-          <div class="services-header-title">
-            <h1>Complex Problems</h1>
-            <h1>Simple Solutions</h1>
-          </div>
-          <div class="services-header-arrow-icon">
-            <h1>&#8595;</h1>
-          </div>
-        </div>
-      </section>
-
-      <!-- home - services -->
-      <section class="services">
-        <div class="service-card" id="service-card-1">
-          <div class="service-card-inner">
-            <div class="service-card-content">
-              <h1>Scalable Systems</h1>
-              <p>Built to grow with your business, no matter the load</p>
-            </div>
-            <div class="service-card-img">
-              <img
-                src="/images/services/service-1.png"
-                alt="Experience Design"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="service-card" id="service-card-2">
-          <div class="service-card-inner">
-            <div class="service-card-content">
-              <h1>Elegant Design</h1>
-              <p>Interfaces that are intuitive, modern, and user-friendly</p>
-            </div>
-            <div class="service-card-img">
-              <img
-                src="/images/services/service-2.png"
-                alt="Experience Design"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="service-card" id="service-card-3">
-          <div class="service-card-inner">
-            <div class="service-card-content">
-              <h1>Proven Expertise</h1>
-              <p>Years of hands-on experience across industries</p>
-            </div>
-            <div class="service-card-img">
-              <img
-                src="/images/services/service-3.png"
-                alt="Experience Design"
-              />
-            </div>
-          </div>
-        </div>
-        <div class="service-card" id="service-card-4">
-          <div class="service-card-inner">
-            <div class="service-card-content">
-              <h1>Trusted Reliability</h1>
-              <p>Consistently delivering high-quality solutions on time, every time</p>
-            </div>
-            <div class="service-card-img">
-              <img
-                src="/images/services/service-4.png"
-                alt="Experience Design"
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- home - footer -->
-      <footer>
-        <div class="footer-container">
-          <div class="footer-symbols footer-symbols-1">
-            <img src="/images/global/s6.png" alt="" />
-            <img src="/images/global/s6.png" alt="" />
-          </div>
-          <div class="footer-symbols footer-symbols-2">
-            <img src="/images/global/s6.png" alt="" />
-            <img src="/images/global/s6.png" alt="" />
-          </div>
-          <div class="footer-header">
-            <h1>IntelQI Studios</h1>
-          </div>
-          <div class="footer-row">
-            <div class="footer-col">
-              <p>Quick Jumps</p>
-              <p><a href="/about">About</a></p>
-              <p><a href="/work">Clientele</a></p>
-              <p><a href="/contact">Contact</a></p>
-            </div>
-            <div class="footer-col">
-              <p>Company</p>
-              <p><a href="/team">Our Team</a></p>
-              <p>Careers</p>
-              <p>Location</p>
-            </div>
-            <div class="footer-col">
-              <p>Social Signals</p>
-              <p>
-                <a href="https://www.youtube.com/@" target="_blank">YouTube</a>
-              </p>
-              <p>
-                <a href="https://.gumroad.com/l/pro" target="_blank"
-                  >LinkedIn</a
-                >
-              </p>
-              <p>
-                <a href="https://www.instagram.com/web/" target="_blank"
-                  >Instagram</a
-                >
-              </p>
-            </div>
-            <div class="footer-col">
-              <p>Legals</p>
-              <p><a href="/tos">Terms of Service</a></p>
-              <p>Proposal Template</p>
-              <p>Refund Policy</p>
-            </div>
-          </div>
-          <div class="copyright-info">
-            <p class="mn">© Copyright 2025 // All Rights Reserved</p>
-          </div>
-          <div class="explosion-container"></div>
-        </div>
-      </footer>
     </div>
     <script type="module" src="/js/transition.js"></script>
     <script type="module" src="/js/lenis-scroll.js"></script>
     <script type="module" src="/js/menu.js"></script>
-    <script type="module" src="/js/hero.js"></script>
-    <script type="module" src="/js/featured-work.js"></script>
-    <script type="module" src="/js/services.js"></script>
-    <script type="module" src="/js/work.js"></script>
-    <script type="module" src="/js/project.js"></script>
-    <script type="module" src="/js/about.js"></script>
     <script type="module" src="/js/contact.js"></script>
-    <script type="module" src="/js/footer.js"></script>
   </body>
 </html>

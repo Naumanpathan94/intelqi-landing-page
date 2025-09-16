@@ -66,42 +66,79 @@ nav .menu-toggle-btn-wrapper {
   z-index: 10;
 }
 
-.nav-overlay .nav-items {
+/* Video Container */
+.nav-overlay .video-container {
   position: absolute;
-  top: 47.5%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  width: 90%;
+  max-width: 1000px;
+  aspect-ratio: 16/9;
+  border-radius: 1em;
+  overflow: hidden;
+  opacity: 0;
+  transform: translate(-50%, -50%) scale(0.8);
+  will-change: transform, opacity;
+  border: none;
+  box-shadow: none;
+  background: var(--bg);
+}
+
+.nav-overlay .video-container video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border: none;
+  outline: none;
+  box-shadow: none;
+  background: transparent;
+}
+
+/* Remove any browser default video styling */
+.nav-overlay .video-container video::-webkit-media-controls {
+  display: none !important;
+}
+
+.nav-overlay .video-container video::-webkit-media-controls-enclosure {
+  display: none !important;
+}
+
+/* Video Controls */
+.video-controls {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+}
+
+.video-control-btn {
+  padding: 0.5em 0.65em 0.55em 0.65em;
+  background-color: var(--bg2);
+  color: var(--fg);
+  border: none;
+  border-radius: 0.4em;
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.video-control-btn-wrapper {
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 1em;
+  height: 1rem;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
-.nav-overlay .nav-items .nav-item {
-  position: relative;
-  transform: translateY(100%);
-  will-change: transform;
-  opacity: 0;
-  border-radius: 0.5em;
-  background-color: var(--bg);
-}
-
-.nav-overlay .nav-items .nav-item p {
-  font-size: 2rem;
+.video-control-btn p {
   user-select: none;
+  margin: 0;
 }
 
-.nav-overlay .nav-items .nav-item.active {
-  background-color: var(--fg);
-}
-
-.nav-overlay .nav-items .nav-item.active p a {
-  color: var(--bg);
-}
-
-.nav-overlay .nav-items .nav-item p a {
-  display: block;
-  padding: 0.5em 0.5em 0.3em 0.5em;
+/* Initial positioning for pause label */
+.video-control-btn .pause-label {
+  transform: translateY(1rem);
 }
 
 .nav-overlay .nav-footer {
@@ -167,9 +204,25 @@ nav .menu-toggle-btn-wrapper {
 }
 
 @media (max-width: 1000px) {
-  .nav-overlay .nav-items .nav-item p {
-    font-size: 1.5rem;
+  .nav-overlay .video-container {
+    width: 95%;
+    max-width: none;
   }
+
+  .video-controls {
+    bottom: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .video-control-btn {
+    font-size: 0.7rem;
+    padding: 0.45em 0.5em 0.5em 0.5em;
+  }
+
+  .video-control-btn-wrapper {
+    height: 0.9rem;
+  }
+
 
   .nav-overlay .nav-footer {
     flex-direction: column;

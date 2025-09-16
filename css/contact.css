@@ -11,15 +11,28 @@
   overflow: hidden;
 }
 
-.contact .trail-img {
+.contact .trail-icon {
   position: absolute;
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
   border-radius: 1em;
   transform-origin: center;
   pointer-events: none;
   will-change: transform;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.contact .trail-icon svg {
+  width: 32px;
+  height: 32px;
+  stroke-width: 2;
+  fill: none;
 }
 
 .contact-card {
